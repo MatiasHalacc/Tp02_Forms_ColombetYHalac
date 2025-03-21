@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="header-logo">
+        </div>
+        <div class="form-group">
+            <input type="text" class="input-field" id="nombre" name="nombre" placeholder="Nombre">
+            <label id="labelNombre" class="label">El nombre debe tener al menos 3 caracteres</label>
+
+            <input type="email" class="input-field" id="email" name="email" placeholder="Email">
+            <label id="labelEmail" class="label">El email no es valido</label>
+            <div class="password-container">
+                <input type="password" class="input-field" id="contrasena" name="contrasena" oninput="validar()" placeholder="Contraseña">
+                <i class="fa fa-eye" id="toggleContrasena" aria-hidden="true"></i>
+                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+            </div>
+
+            <div class="password-container">
+                <input type="password" class="input-field" id="confcontrasena" name="confcontrasena" oninput="validar()" placeholder="Confirmar contraseña">
+                <i class="fa fa-eye" id="toggleConfContrasena" aria-hidden="true"></i>
+                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+            </div>
+            <label id="labelContrasena" class="label">Las contraseñas no coinciden</label>
+        </div>
+        <button class="submit-button">Registrar</button> 
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

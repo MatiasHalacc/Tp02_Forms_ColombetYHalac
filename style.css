@@ -26,7 +26,7 @@ body {
   
   /* Campos de entrada */
   .input-field {
-    width: calc(100% - 20px);
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ddd;
@@ -63,10 +63,10 @@ body {
 
   .label{
     color: red;
-    border: none;
-    border-radius: 5px;
     font-size: 14px;
-    box-sizing: border-box;
+    display: block;  /* Asegura que esté en una nueva línea */
+    margin-top: -5px; /* Ajuste opcional si necesitas acercarlo al input */
+    margin-bottom: 10px; /* Espaciado entre el mensaje de error y el siguiente input */
   }
 
   .visible {

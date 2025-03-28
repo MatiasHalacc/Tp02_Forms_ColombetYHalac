@@ -30,6 +30,7 @@ const validar = () => {
         labelcontrasena.classList.add('hidden');
         labelcontrasena.classList.remove('visible');
     }
+    return valido
 }
 
 function validarEmail(email) {
@@ -50,3 +51,18 @@ email.addEventListener("input", () => {
     }
 
 })
+
+function mostrarContrasena(id, iconoId) {
+    let input = document.getElementById(id);
+    let icono = document.getElementById(iconoId);
+
+    if (input.type === "password") {
+        input.type = "text";
+        icono.classList.remove("fa-eye-slash");
+        icono.classList.add("fa-eye");
+    } else {
+        input.type = "password";
+        icono.classList.remove("fa-eye");
+        icono.classList.add("fa-eye-slash");
+    }
+}

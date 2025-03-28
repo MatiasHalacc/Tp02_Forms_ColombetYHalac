@@ -66,3 +66,14 @@ function mostrarContrasena(id, iconoId) {
         icono.classList.add("fa-eye-slash");
     }
 }
+
+document.querySelector(".boton-cambio").addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    document.querySelector(".login-container").classList.toggle("login-container-black");
+    document.querySelector(".submit-button").classList.toggle("submit-button-black")
+    if (document.body.classList.contains("dark-mode")) {
+        document.querySelector(".boton-cambio").innerHTML = "Modo claro";
+    } else {
+        document.querySelector(".boton-cambio").innerHTML = "Modo oscuro";
+    }
+})

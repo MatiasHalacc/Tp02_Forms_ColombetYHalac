@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <div class="boton-container">
+        <button class="boton-cambio">Modo oscuro</button>
+    </div>
     <div class="login-container">
         <div class="form-group">
             <input type="text" class="input-field" id="nombre" name="nombre" placeholder="Nombre">
@@ -20,7 +23,7 @@
                 <i class="fa fa-eye-slash" id="mostrarContrasena" onclick="mostrarContrasena('contrasena', 'mostrarContrasena')" aria-hidden="true"></i>
             </div>
 
-            <div class="password-container">
+            <div class="password-container">    
                 <input type="password" class="input-field" id="confcontrasena" name="confcontrasena" oninput="validar()" placeholder="Confirmar contraseña">
                 <i class="fa fa-eye-slash" id="mostrarConfContrasena" onclick="mostrarContrasena('confcontrasena', 'mostrarConfContrasena')" aria-hidden="true"></i>
             </div>

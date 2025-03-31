@@ -1,36 +1,48 @@
-let nombre = document.getElementById("nombre")
-let labelNombre = document.getElementById("labelNombre")
-let email = document.getElementById("email")
-let labelEmail = document.getElementById("labelEmail")
 let verificarEmail = false
 let contrasena = document.getElementById("contrasena")
 let labelcontrasena = document.getElementById("labelContrasena")
 let confcontrasena = document.getElementById("confcontrasena")
 
-nombre.addEventListener("input", () => {
-    console.log(nombre.value.length)
+const validarNombre = ()=> {
+    let nombre = document.getElementById("nombre")
+    let labelNombre = document.getElementById("labelNombre")
+    let valido = false
     if(nombre.value.length < 3)
     { 
         labelNombre.classList.remove('hidden');
         labelNombre.classList.add('visible');
-    } else {
+        labelNombre.innerText = "El nombre debe tener al menos 3 caracteres"
+        valido = false
+    } else if (nombre.value.length > 3 || nombre.value.length == 0){
         labelNombre.classList.add('hidden');
         labelNombre.classList.remove('visible');
+        labelNombre.innerText = ""
+        valido = true
     }
-})
+    return valido
+}
 
 const validar = () => {
     confcontrasena = document.getElementById("confcontrasena").value;
     contrasena = document.getElementById("contrasena").value;
-
-    if(confcontrasena != contrasena){
+    let valido = false
+    if(confcontrasena != contrasena || esContrasenaValida(contrasena,confcontrasena)){
         labelcontrasena.classList.add('visible');
         labelcontrasena.classList.remove('hidden');
+        labelcontrasena.innerText = "Las contraseñas no coinciden o no son validas"
+        valido = false
     } else{
         labelcontrasena.classList.add('hidden');
         labelcontrasena.classList.remove('visible');
+        labelcontrasena.innerText = ""
+        valido = true
     }
     return valido
+}
+function esContrasenaValida(contrasena, confContrasena) {
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    
+    return contrasena === confContrasena && regex.test(contrasena);
 }
 
 function validarEmail(email) {
@@ -38,19 +50,25 @@ function validarEmail(email) {
     return regex.test(email);
 }
 
-email.addEventListener("input", () => { 
+const validarEmailInput = () => { 
+    let email = document.getElementById("email")
+    let labelEmail = document.getElementById("labelEmail")
     let mail = validarEmail(email.value)
-    console.log(mail)
+    let valido = false
     if(mail == false)
     { 
         labelEmail.classList.add('visible');
         labelEmail.classList.remove('hidden');
+        labelEmail.innerText = "El email no es valido"
+        valido = false
     } else {
         labelEmail.classList.add('hidden');
         labelEmail.classList.remove('visible');
+        labelEmail.innerText = ""
+        valido = true
     }
-
-})
+    return valido
+}
 
 function mostrarContrasena(id, iconoId) {
     let input = document.getElementById(id);
@@ -72,8 +90,16 @@ document.querySelector(".boton-cambio").addEventListener("click", () => {
     document.querySelector(".login-container").classList.toggle("login-container-black");
     document.querySelector(".submit-button").classList.toggle("submit-button-black")
     if (document.body.classList.contains("dark-mode")) {
-        document.querySelector(".boton-cambio").innerHTML = "Modo claro";
+        document.querySelector(".boton-cambio").innerText = "Modo claro";
     } else {
-        document.querySelector(".boton-cambio").innerHTML = "Modo oscuro";
+        document.querySelector(".boton-cambio").innerText = "Modo oscuro";
+    }
+})
+
+document.getElementById("submit-btn").addEventListener("click", () => {
+    if (!(validar() && validarEmailInput() && validarNombre())) {
+        alert("Los campos son inválidos");
+    }else{
+        alert("los campos son validos")
     }
 })

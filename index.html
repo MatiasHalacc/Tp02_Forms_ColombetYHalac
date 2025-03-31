@@ -13,11 +13,11 @@
     </div>
     <div class="login-container">
         <div class="form-group">
-            <input type="text" class="input-field" id="nombre" name="nombre" placeholder="Nombre">
-            <label id="labelNombre" class="label">El nombre debe tener al menos 3 caracteres</label>
+            <input type="text" class="input-field" id="nombre" name="nombre" placeholder="Nombre" oninput="validarNombre()">
+            <label id="labelNombre" class="label"></label>
 
-            <input type="email" class="input-field" id="email" name="email" placeholder="Email">
-            <label id="labelEmail" class="label">El email no es valido</label>
+            <input type="email" class="input-field" id="email" name="email" placeholder="Email" oninput="validarEmailInput()">
+            <label id="labelEmail" class="label"></label>
             <div class="password-container">
                 <input type="password" class="input-field" id="contrasena" name="contrasena" oninput="validar()" placeholder="Contraseña">
                 <i class="fa fa-eye-slash" id="mostrarContrasena" onclick="mostrarContrasena('contrasena', 'mostrarContrasena')" aria-hidden="true"></i>
@@ -27,9 +27,9 @@
                 <input type="password" class="input-field" id="confcontrasena" name="confcontrasena" oninput="validar()" placeholder="Confirmar contraseña">
                 <i class="fa fa-eye-slash" id="mostrarConfContrasena" onclick="mostrarContrasena('confcontrasena', 'mostrarConfContrasena')" aria-hidden="true"></i>
             </div>
-            <label id="labelContrasena" class="label">Las contraseñas no coinciden</label>
+            <label id="labelContrasena" class="label"></label>
         </div>
-        <button class="submit-button">Registrar</button> 
+        <button class="submit-button" id="submit-btn">Registrar</button> 
     </div>
     <script src="script.js"></script>
 </body>

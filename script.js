@@ -20,13 +20,13 @@ const validarNombre = ()=> {
         valido = true
     }
     return valido
-}
+}   
 
 const validar = () => {
     confcontrasena = document.getElementById("confcontrasena").value;
     contrasena = document.getElementById("contrasena").value;
-    let valido = false
-    if(confcontrasena != contrasena || esContrasenaValida(contrasena,confcontrasena)){
+    let valido = false  
+    if(!esContrasenaValida(contrasena,confcontrasena)){  
         labelcontrasena.classList.add('visible');
         labelcontrasena.classList.remove('hidden');
         labelcontrasena.innerText = "Las contraseñas no coinciden o no son validas"
